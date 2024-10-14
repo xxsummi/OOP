@@ -2,25 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package employeeseries.version2;
+package employeeseries.version3;
 
 /**
  *
  * @author User
  */
-public class PieceWorkerEmployee extends Employee {
+public class PieceWorkerEmployee extends Employee{
     private int totalPiecesFinished;
     private double ratePerPiece;
 
     public PieceWorkerEmployee() {
-    }
-
-    public PieceWorkerEmployee(Employee e) {
-        super(e.getEmpName(), e.getEmpID());
-    }
-    
-    public PieceWorkerEmployee(String empName, int empID){
-        super(empName, empID);    
     }
     
     public PieceWorkerEmployee(int totalPiecesFinished, double ratePerPiece) {
@@ -28,14 +20,14 @@ public class PieceWorkerEmployee extends Employee {
         this.ratePerPiece = ratePerPiece;
     }
     
-    public PieceWorkerEmployee(Employee e, int totalPiecesFinished, double ratePerPiece) {
-        super(e.getEmpName(), e.getEmpID());
+    public PieceWorkerEmployee(int totalPiecesFinished, double ratePerPiece, int empID, Name name) {
+        super(empID, name);
         this.totalPiecesFinished = totalPiecesFinished;
         this.ratePerPiece = ratePerPiece;
     }
     
-    public PieceWorkerEmployee(int totalPiecesFinished, double ratePerPiece, String empName, int empID) {
-        super(empName, empID); 
+    public PieceWorkerEmployee(int totalPiecesFinished, double ratePerPiece, int empID, Name name, Date birthDate, Date dateHired) {
+        super(empID, name, birthDate, dateHired);
         this.totalPiecesFinished = totalPiecesFinished;
         this.ratePerPiece = ratePerPiece;
     }
@@ -62,19 +54,15 @@ public class PieceWorkerEmployee extends Employee {
         
         sal+=(ratePerPiece*10)*(pieces/100);
         
-//        while(pieces>=100){
-//            sal+=ratePerPiece*10;
-//            pieces-=100;
-//        }
         sal+=ratePerPiece*totalPiecesFinished;
         return sal;
     }
     
-    
     public void displayPieceWorkerEmployee(){
-         System.out.println(toString()  + "Total  Salary: " + computeSalary());
+        super.display();
+        System.out.println( "Total Pieces Finished: " + totalPiecesFinished + "\nRatePerPiece: " + ratePerPiece + "\nTotal  Salary: " + computeSalary());
     }
-
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -84,6 +72,4 @@ public class PieceWorkerEmployee extends Employee {
         sb.append('\n');
         return sb.toString();
     }
-
-    
 }

@@ -59,16 +59,16 @@ public class HourlyEmployee extends Employee{
     }
 
     public void displayHourlyEmployee(){
-         System.out.println(toString()  + ", totalSalary: " + computeSalary());
+        super.display();
+        System.out.println("Total Hours Worked: " + totalHoursWorked + "\nRate Per Hour: " + ratePerHour + "\nTotal Salary: " + computeSalary());
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
-        sb.append("HourlyEmployee\n");
-        sb.append("totalHoursWorked=").append(totalHoursWorked);
-        sb.append(", ratePerHour=").append(ratePerHour);
+        sb.append("Total Hours Worked: ").append(totalHoursWorked);
+        sb.append("\nRate Per Hour: ").append(ratePerHour);
         return sb.toString();
     }
     

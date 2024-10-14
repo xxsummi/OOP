@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package employeeseries.version2;
+package employeeseries.version3;
 
 /**
  *
@@ -10,37 +10,24 @@ package employeeseries.version2;
  */
 public class CommisionEmployee extends Employee{
     private double totalSales;
-
+    
     public CommisionEmployee() {
     }
 
     public CommisionEmployee(double totalSales) {
         this.totalSales = totalSales;
     }
+    
+    public CommisionEmployee(double totalSales, int empID, Name empName) {
+        super(empID, empName);
+        this.totalSales = totalSales;
+    }
+    
+    public CommisionEmployee(double totalSales, int empID, Name empName, Date birthDate, Date dateHired) {
+        super(empID, empName, birthDate, dateHired);
+        this.totalSales = totalSales;
+    }
 
-    public CommisionEmployee(Employee e) {
-        super(e.getEmpName(), e.getEmpID());
-    }
-
-    public CommisionEmployee(String empName, int empID){
-        super(empName, empID);    
-    }
-    
-    public CommisionEmployee(Employee e, double totalSales) {
-        super(e.getEmpName(), e.getEmpID());
-        this.totalSales = totalSales;
-    }
-    
-    public CommisionEmployee(double totalSales, Employee e) {
-        super(e.getEmpName(), e.getEmpID());
-        this.totalSales = totalSales;
-    }
-    
-    public CommisionEmployee(double totalSales, String empName, int empID) {
-        super(empName, empID);
-        this.totalSales = totalSales;
-    }
-    
     public double getTotalSales() {
         return totalSales;
     }
@@ -48,11 +35,11 @@ public class CommisionEmployee extends Employee{
     public void setTotalSales(double totalSales) {
         this.totalSales = totalSales;
     }
-
+    
     public double computeSalary(){
         double salary=0;
         if(totalSales < 10000){
-            salary=totalSales*.05;
+            salary=totalSales*0.05;
         } else if(totalSales>=10000 && totalSales<100000){
             salary=totalSales*0.10;
         } else if(totalSales>=100000 && totalSales<1000000){
@@ -64,7 +51,8 @@ public class CommisionEmployee extends Employee{
     }
     
     public void displayCommisionEmployee(){
-         System.out.println(toString()  + "Total  Salary: "  + computeSalary());
+        super.display();
+        System.out.println("Total Sales: " + totalSales + "\nTotal  Salary: "  + computeSalary());
     }
 
     @Override
@@ -75,5 +63,4 @@ public class CommisionEmployee extends Employee{
         sb.append('\n');
         return sb.toString();
     }
-    
 }

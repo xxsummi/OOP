@@ -69,22 +69,38 @@ public class Employee {
     }
 
     public void display(){
-        System.out.println(this);
+        System.out.print("\nEmployee\nEmployee ID: " + empID + "\nEmployee Name: "); 
+        name.displayName();
+        System.out.println("\nBirth Date: " + birthDate + "\nDate Hired: " + dateHired );
     }
     
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Employee\n");
-        sb.append("empID: ").append(empID);
-        sb.append("\nempName: ").append(name);
-        sb.append("birthDate: ").append(birthDate);
-        sb.append("\ndateHired: ").append(dateHired);
-        sb.append("\n");
-        return sb.toString();
+        return "\nempID: " + empID + "\nempName: " + name + "birthDate: " + birthDate + "\ndateHired: " + dateHired + '\n';
     }
     
+//
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("\nEmployee Name: ").append(name.lname).append(", ").append(name.fname).append(", ").append(name.mid).append(".");
+//        sb.append("\nEmployee ID: ").append(empID);
+//        sb.append("\nDate Hired: ").append(dateHired.month).append("/").append(dateHired.day).append("/").append(dateHired.year);    
+//        sb.append("\nDate of Birth: ").append(birthDate.month).append("/").append(birthDate.day).append("/").append(birthDate.year); 
+//        return sb.toString();
+//    }
+//    
     
-    
-    
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("\nEmployee\n");
+//        sb.append("empID: ").append(empID);
+//        sb.append("\nempName: ").append(name);
+//        sb.append("birthDate: ").append(birthDate);
+//        sb.append("\ndateHired: ").append(dateHired);
+//        sb.append("\n");
+//        return sb.toString();
+//    }
+
 }

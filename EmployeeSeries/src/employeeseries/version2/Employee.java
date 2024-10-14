@@ -43,10 +43,9 @@ public class Employee {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Employee{");
-        sb.append("empName=").append(empName);
-        sb.append(", empID=").append(empID);
-        sb.append('}');
+        sb.append("Employee Id: ").append(empID);
+        sb.append("\nEmployee Name: ").append(empName);
+        sb.append('\n');
         return sb.toString();
     }
 }

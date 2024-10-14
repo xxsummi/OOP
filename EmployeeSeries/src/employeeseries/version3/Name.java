@@ -11,7 +11,7 @@ package employeeseries.version3;
 public class Name {
     public String fname;
     public String lname;
-    public char mid;
+    public String mid;
 
     public Name() {
     }
@@ -21,7 +21,7 @@ public class Name {
         this.lname = lname;
     }
 
-    public Name(String fname, String lname, char mid) {
+    public Name(String fname, String lname, String mid) {
         this.fname = fname;
         this.lname = lname;
         this.mid = mid;
@@ -43,23 +43,46 @@ public class Name {
         this.lname = lname;
     }
 
-    public char getMid() {
+    public String getMid() {
         return mid;
     }
 
-    public void setMid(char mid) {
+    public void setMid(String mid) {
         this.mid = mid;
     }
 
-    public void display(){
-        System.out.println(this);
-    }
-    
-    @Override
-    public String toString() {
-        return lname + ", " + fname + " " + mid + ".\n";
-    }
+//    public void displayName(){
+//        if(mid==null){
+//            System.out.println("lname" + ", " + fname + "\n");
+//        }
+////        else{
+//            System.out.println("lname" + ", " + fname + " " + mid.charAt(0) + ".\n");
+////        }
+//    }
+//    
+//    
+//    
+//    @Override
+//    public String toString() {
+//        return lname + ", " + fname + " " + mid + ".\n";
+//    }
 
     
+    public void displayName(){
+        System.out.print(lname + ", " + fname);
+        if(mid!=null){
+            System.out.print(", " + mid.charAt(0) + ".");
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nFirst Name: ").append(fname);
+        sb.append("\nLast Name: ").append(lname);
+        sb.append("\nMI: ").append(mid);    
+        sb.append("\n");
+        return sb.toString();
+    }
     
 }

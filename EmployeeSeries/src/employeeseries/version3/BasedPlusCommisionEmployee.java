@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package employeeseries.version2;
+package employeeseries.version3;
 
 /**
  *
@@ -14,21 +14,18 @@ public class BasedPlusCommisionEmployee extends CommisionEmployee{
     public BasedPlusCommisionEmployee() {
     }
     
-    public BasedPlusCommisionEmployee(Employee e){
-        super(e.getEmpName(), e.getEmpID());
-    }
-    
-    public BasedPlusCommisionEmployee(double totalSales, Employee e){
-        super(totalSales, e);
-    }
-    
     public BasedPlusCommisionEmployee(double totalSales, double baseSalary){
         super(totalSales);
         this.baseSalary=baseSalary;
     }
     
-    public BasedPlusCommisionEmployee(double totalSales, int empID, String empName, double baseSalary){
-        super(totalSales, empName, empID);
+    public BasedPlusCommisionEmployee(double totalSales, double baseSalary, int empID, Name empName){
+        super(totalSales, empID, empName);
+        this.baseSalary=baseSalary;
+    }
+    
+    public BasedPlusCommisionEmployee(double totalSales, double baseSalary, int empID, Name empName, Date birthDate, Date dateHired) {
+        super(totalSales, empID, empName, birthDate, dateHired);
         this.baseSalary=baseSalary;
     }
 
@@ -46,7 +43,8 @@ public class BasedPlusCommisionEmployee extends CommisionEmployee{
     }
 
     public void displayBasedPlusCommisionEmployee(){
-         System.out.println(toString()  + "Total  Salary: "  + computeSalary());
+        super.display();
+        System.out.println("Base Salary: " + baseSalary + "\nTotal  Salary: "  + computeSalary());
     }
     
     @Override
@@ -57,4 +55,5 @@ public class BasedPlusCommisionEmployee extends CommisionEmployee{
         sb.append('\n');
         return sb.toString();
     }
+    
 }

@@ -67,7 +67,7 @@ public class HourlyEmployee extends Employee{
     }
 
     public void displayHourlyEmployee(){
-         System.out.println(toString()  + computeSalary());
+         System.out.println(toString()  + "Total  Salary: "  + computeSalary());
     }
 
     @Override
